@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 int main()
 {
@@ -33,8 +34,6 @@ int main()
         bags_price *= 1.10;
     }
     total_price = bags_price * bags_num;
-    cout.setf(ios::fixed);
-    cout.precision(2);
-    cout << "The total price of bags is: " << total_price << " lv." << endl;
+    cout << fixed << setprecision(2) << "The total price of bags is: " << total_price << " lv." << endl;
     return 0;
 }
