@@ -6,10 +6,15 @@ int main()
     int windows;
     double total_fee = 0;
     double delivery_fee, final_price;
-    string type, delivery; 
+    string type; 
+    string deli, very;
     cin >> windows;
     cin >> type;
-    cin >> delivery;
+    cin >> deli >> very;
+    if (deli == "With")
+    {
+        delivery_fee += 60;
+    }
     if (windows <= 10)
     {
         cout << "Invalid order" << endl;
@@ -75,14 +80,11 @@ int main()
             total_fee += 250 * 0.91;
         }
     }
-    if (delivery == "With delivery")
+    
+    final_price = (total_fee * windows) + delivery_fee;
+    if (windows > 99)
     {
-        delivery_fee = 60;
-        final_price = (total_fee * windows) + delivery_fee;
-    }
-    else
-    {
-        final_price = total_fee * windows;
+        final_price *= 0.96;
     }
     cout << fixed << setprecision(2) << final_price << " BGN" << endl;
     return 0;
